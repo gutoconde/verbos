@@ -1,0 +1,24 @@
+SELECT
+   T.TEXTOFORMATO as textoFormato,
+   P.DESCRICAO as pessoa,
+   P.ORDEM as ordem, 
+   F.texto as verbo 
+ FROM CONJUGACAO C
+   LEFT JOIN FORMA F ON F.IDCONJUGACAO = C.ID
+   LEFT JOIN PESSOA P ON P.ID = F.IDPESSOA
+   JOIN VERBO V ON V.ID = C.IDVERBO
+   JOIN TEMPO T ON T.ID = C.IDTEMPO
+   LEFT JOIN MODO M ON M.ID = T.IDMODO AND M.CODIGO = NULL
+ WHERE
+   1=1
+   AND V.ID = 1
+   AND T.CODIGO = 'PRESENTE'
+ ORDER BY P.ORDEM asc;
+
+
+SELECT
+  V.DESCRICAO as descricao,
+  V.CODIGO as codigo
+FROM VERBO V 
+WHERE '
+  V.CODIGO = upper('alcançar');
