@@ -5,7 +5,7 @@
 #Build Stage
 FROM node:14-alpine as build-stage
 WORKDIR /api
-COPY csv-sources ./csv-sources
+COPY database ./database
 COPY package*.json ./
 
 RUN npm install

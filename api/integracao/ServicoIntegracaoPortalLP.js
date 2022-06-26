@@ -7,6 +7,10 @@ class ServicoIntegracaoPortalLP {
 
     static async listarConjugacoes(verbo) {
         const url = await ServicoIntegracaoPortalLP.recuperarURLDeConsulta(verbo);
+        return await ServicoIntegracaoPortalLP.recuperaConjugacao(url);
+    }
+
+    static async recuperaConjugacao(url) {
         var result = null;
         if(url) {
             const options = {
@@ -50,6 +54,31 @@ class ServicoIntegracaoPortalLP {
 
     static recuperarURLDeMaisDeUmResultado(html) {
         return htmlParser.parseParametrosMaisDeUmResultado(html);
+    }
+
+    static async recuperarURLsPorIndice(indice) {
+        var urlBase = 'http://www.portaldalinguaportuguesa.org/advanced.php';
+        const params = {
+            'wordformsel': 'exact',
+            'wordformquery': '',
+            'lemmasel': 'exact',
+            'lemmaquery': '',
+            'restrict': 'VRB',
+            'gender': '',
+            'show': 'list',
+            'action': 'search',
+            'act': 'advanced',
+            'start': indice
+        };
+
+        const options = {
+            method: 'GET',
+            url: urlBase,
+            params
+        };
+        const resposta = await axios(options);
+        
+        return resposta;
     }
 };
 

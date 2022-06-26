@@ -27,16 +27,23 @@ class ServicoConjugacao {
     }
  
     async recuperarConjugacaoDaInternet(verbo) {
-        var conjugacoes = await servicoIntegracaoPortalLP.listarConjugacoes(verbo);
-        if(!conjugacoes) {
+        var resultadoVerbo = await servicoIntegracaoPortalLP.listarConjugacoes(verbo);
+        
+        if(!resultadoVerbo.conjugacoes) {
             throw new ConjugacaoNaoEncontradaError("Conjugação do verbo " + verbo + " não encontrada");
         }
+        await this.salvarConjugacao(resultadoVerbo);
+    }
+
+    async salvarConjugacao(resultadoVerbo) {
         var vb = {
-            codigo : verbo.toUpperCase(),
-            descricao: verbo,
+            codigo : resultadoVerbo.verbo.toUpperCase(),
+            descricao: resultadoVerbo.verbo,
         };
         var idVerbo = await this.repositorioVerbo.insert(vb);
+        var conjugacoes = resultadoVerbo.conjugacao;
         
+
         for(var i=0; i < conjugacoes.length; i++) {
             var conjugacao = {
                 idVerbo: idVerbo,
@@ -45,7 +52,6 @@ class ServicoConjugacao {
             };
             var idConjugacao = await this.repositorio.insert(conjugacao);
             var textosFormas = conjugacoes[i].verbos; 
-            //var textosFormas = textosFormas.filter(texto => texto !== null && texto.trim() !== '');
             for(var j=0; j < textosFormas.length; j++ ) {
                 var forma = {
                     idConjugacao: idConjugacao,
@@ -71,11 +77,10 @@ class ServicoConjugacao {
                 if(forma.texto !== null && forma.texto.trim() != '') {
                     await this.repositorio.insertForma(forma);
                 }
-                
             }
-            
         }
     }
+
 };
 
 module.exports = ServicoConjugacao;

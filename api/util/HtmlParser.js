@@ -6,7 +6,11 @@ const { JSDOM } = jsdom;
 class HtmlParser {
 
     static parse(html) {
-        var conjugacao = [];
+        var resultadoVerbo = {
+            verbo: null,
+            conjugacao: []
+        };
+        
         var modos = ['INDICATIVO', 'SUBJUNTIVO'];
         
         var temposDoInticativo = ['PRESENTE', 'PRETERITO_IMPERFEITO',
@@ -24,10 +28,13 @@ class HtmlParser {
         
         try {
             const dom = new JSDOM(html);
+            const title = dom.window.document.title;
             const maintd = dom.window.document.getElementById('maintext');
             const trIndicativo = maintd.querySelectorAll('tr')[0];
             const trTempos = maintd.querySelectorAll('tr')[2]
             const tdTempos = trTempos.querySelectorAll('td');
+
+            resultadoVerbo.verbo = title.split(' ')[0].trim();
             
             for (var j = 0; j < tdTempos.length; j++) {
                 var item = {
@@ -43,7 +50,7 @@ class HtmlParser {
                         item.verbos.push(texto);
                     }
                 }
-                conjugacao.push(item);
+                resultadoVerbo.conjugacao.push(item);
             }
 
             const trTemposSubjuntivo = maintd.querySelectorAll('tr')[5];
@@ -63,7 +70,7 @@ class HtmlParser {
                         item.verbos.push(texto);
                     }
                 }
-                conjugacao.push(item);
+                resultadoVerbo.conjugacao.push(item);
             }
 
             const tdImperativo = tdTemposSubjuntivo[3];
@@ -92,8 +99,8 @@ class HtmlParser {
                     itemImperativoNegativo.verbos.push(vn); 
                 }
             }
-            conjugacao.push(itemImperativoAfirmativo);
-            conjugacao.push(itemImperativoNegativo);
+            resultadoVerbo.conjugacao.push(itemImperativoAfirmativo);
+            resultadoVerbo.conjugacao.push(itemImperativoNegativo);
 
             const trInfinitivo = maintd.querySelectorAll('tr')[4];
             const tdsInfinitivo = trInfinitivo.querySelectorAll('td')[4];
@@ -108,7 +115,7 @@ class HtmlParser {
                 texto = texto.replace(/(\r\n|\n|\r|\t)/gm, '');
                 itemInfinitivo.verbos.push(texto);
             }
-            conjugacao.push(itemInfinitivo);
+            resultadoVerbo.conjugacao.push(itemInfinitivo);
 
             const tdInfinitivoPessoal = tdTemposSubjuntivo[4];
             var itemInfinitivoPessoal = {
@@ -125,7 +132,7 @@ class HtmlParser {
                     itemInfinitivoPessoal.verbos.push(texto);
                 }
             }
-            conjugacao.push(itemInfinitivoPessoal);
+            resultadoVerbo.conjugacao.push(itemInfinitivoPessoal);
 
             const tdGerundio = tdTemposSubjuntivo[5];
             var itemGerundio = {
@@ -139,7 +146,7 @@ class HtmlParser {
                 texto = texto.replace(/(\r\n|\n|\r|\t)/gm, '');
                 itemGerundio.verbos.push(texto);
             }
-            conjugacao.push(itemGerundio);
+            resultadoVerbo.conjugacao.push(itemGerundio);
             
             const tableParticioPassado = maintd.querySelectorAll('table')[1];
             const tdsParticioPassado = tableParticioPassado.querySelectorAll('td');
@@ -161,12 +168,12 @@ class HtmlParser {
                     
                 }
             }
-            conjugacao.push(itemParticipioPassado);
+            resultadoVerbo.conjugacao.push(itemParticipioPassado);
             
         } catch(error) {
             throw error;
         }
-        return conjugacao;
+        return resultadoVerbo;
     }
 
     static parseParametros(html) {
@@ -214,6 +221,45 @@ class HtmlParser {
             return null
         }
         return aLink.getAttribute('href');
+    }
+
+    static parseUrls(html) {
+        const urlBase = 'http://www.portaldalinguaportuguesa.org/advanced.php';
+        const dom = new JSDOM(html);
+        const maintd = dom.window.document.getElementById('maintext');
+        const alinks = maintd.querySelectorAll('a');
+        var resultado = {
+            anterior : null,
+            proximo : null,
+            links: [],
+        };
+        if(alinks) {
+            for (var i = 0; i < alinks.length; i++) {
+                if(alinks[i].textContent === 'previous') {
+                    resultado.anterior = alinks[i].getAttribute('href');
+                } else if(alinks[i].textContent === 'next') {
+                    resultado.proximo = alinks[i].getAttribute('href');
+                } else {
+                    resultado.links.push(urlBase + alinks[i].getAttribute('href'));
+                }
+                
+            }
+        }
+        return resultado;
+    }
+
+    static parseQueryString(query) {
+        let queryParams = {};
+        if(query) {
+            let queryStrings = query.substring(1);
+            let params = queryStrings.split('&');
+    
+            for (var i = 0; i < params.length; i++) {
+                var pair = params[i].split('=');
+                queryParams[pair[0]] = decodeURIComponent(pair[1]);
+            }
+        }
+        return queryParams;
     }
 
 };

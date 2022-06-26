@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon index.js local",
     "debug": "nodemon --inspect index.js local",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "create-database": "node ./scripts/CarregarBaseDeDados.js 2>&1| tee carga.log"
   },
   "author": "gutoconde",
   "license": "ISC",
