@@ -15,13 +15,14 @@ class ServicoConjugacao {
     async recuperarConjugacao(verbo, tempo, modo) {
         var vb = await this.repositorioVerbo.recuperarVerbo(verbo);
         var conjugacoes = [];
-        if(vb) {
+        //if(vb) {
             conjugacoes = await this.repositorio.recuperarConjugacao(verbo, tempo, modo);
-        } else {
+        /** } else {
             await this.recuperarConjugacaoDaInternet(verbo);
             console.log('verbo ' + verbo + ' carregado');
             conjugacoes = await this.repositorio.recuperarConjugacao(verbo, tempo, modo);
         }
+        */
         
         return ConjugacaoUtil.montarConjugacao(conjugacoes);
     }
