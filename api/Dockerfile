@@ -5,7 +5,6 @@
 #Build Stage
 FROM node:14-alpine as build-stage
 WORKDIR /api
-COPY database/verbos.db ./database/verbos.db
 COPY package*.json ./
 
 RUN npm install
