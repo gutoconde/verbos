@@ -9,8 +9,8 @@ services:
   verbosapi:
     restart: always
     environment:
-      - VERBOS_DBSOURCE=${VT_DB_HOST}
-      - VERBOS_API_PORT=${VT_API_PORT}
+      - VERBOS_DBSOURCE=./database/verbos.db
+      - VERBOS_API_PORT=3000
     container_name: "verbosapi"
     build: 
       context: ./api
