@@ -1,0 +1,20 @@
+#PROJETO VERBOS
+#CONTEM API COM BANCO DE DADOS SQLITE
+#Execute o comando a seguir na raiz do projeto para criar as imagens:
+#>docker-compose up -d --build
+#Para enviar as imagens para o docker-hub
+#>docker-compose push
+version: "3.8"
+services:
+  verbosapi:
+    restart: always
+    environment:
+      - VERBOS_DBSOURCE=${VT_DB_HOST}
+      - VERBOS_API_PORT=${VT_API_PORT}
+    container_name: "verbosapi"
+    build: 
+      context: ./api
+      dockerfile: Dockerfile
+    image: gutoconde/verbosapi:1.0
+    ports:
+      - "3000:3000"
