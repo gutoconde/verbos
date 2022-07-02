@@ -1,0 +1,404 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "conjugação de verbos",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "ConjugarVerboIntent",
+                    "slots": [
+                        {
+                            "name": "verbo",
+                            "type": "VERBO",
+                            "samples": [
+                                "Conjugue {verbo} no {tempo}",
+                                "{verbo} no {tempo}",
+                                "verbo {verbo}",
+                                "vamos conjugar {verbo}",
+                                "vamos conjugar o verbo {verbo}",
+                                "conjugue {verbo}",
+                                "quero conjugar {verbo}",
+                                "Conjugue o verbo {verbo}",
+                                "O verbo {verbo}",
+                                "Quero conjugar o verbo {verbo}",
+                                "{verbo}"
+                            ]
+                        },
+                        {
+                            "name": "tempo",
+                            "type": "TEMPO_VERBAL",
+                            "samples": [
+                                "Vamos conjugar no tempo {tempo}",
+                                "Quero conjugar no tempo {tempo}",
+                                "No tempo {tempo}",
+                                "Vamos conjugar no {tempo}",
+                                "Quero conjugar no {tempo}",
+                                "No {tempo}",
+                                "{tempo}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "verbo {verbo}",
+                        "Vamos conjugar {verbo} no {tempo}",
+                        "Vamos conjugar o verbo {verbo} no {tempo}",
+                        "{verbo}",
+                        "Conjugue {verbo}",
+                        "Conjugue o verbo {verbo}",
+                        "Conjugue o verbo {verbo} no {tempo}",
+                        "Conjugue {verbo} no {tempo}",
+                        "{verbo} no {tempo}",
+                        "Verbo {verbo} no {tempo}",
+                        "Conjugar {verbo} no {tempo}",
+                        "Conjugar {verbo}",
+                        "Conjugar o verbo {verbo}",
+                        "Conjugar o verbo {verbo} no {tempo}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "TEMPO_VERBAL",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "pretérito mais que perfeito do indicativo",
+                                "synonyms": [
+                                    "pretérito mais que perfeito"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "PARTICIPIO_PASSADO",
+                            "name": {
+                                "value": "particípio passado",
+                                "synonyms": [
+                                    "particípio"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "GERUNDIO",
+                            "name": {
+                                "value": "gerúndio"
+                            }
+                        },
+                        {
+                            "id": "INFINITIVO_PESSOAL",
+                            "name": {
+                                "value": "infinitivo pessoal"
+                            }
+                        },
+                        {
+                            "id": "INFINITIVO_IMPESSOAL",
+                            "name": {
+                                "value": "infinitivo impessoal",
+                                "synonyms": [
+                                    "infinitivo"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "IMPERATIVO_NEGATIVO",
+                            "name": {
+                                "value": "imperativo negativo"
+                            }
+                        },
+                        {
+                            "id": "IMPERATIVO_AFIRMATIVO",
+                            "name": {
+                                "value": "imperativo afirmativo",
+                                "synonyms": [
+                                    "imperativo"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "FUTURO_DO_SUBJUNTIVO",
+                            "name": {
+                                "value": "futuro do subjuntivo"
+                            }
+                        },
+                        {
+                            "id": "PRETERITO_IMPERFEITO_DO_SUBJUNTIVO",
+                            "name": {
+                                "value": "pretérito imperfeito do subjuntivo"
+                            }
+                        },
+                        {
+                            "id": "PRESENTE_DO_SUBJUNTIVO",
+                            "name": {
+                                "value": "presente do subjuntivo"
+                            }
+                        },
+                        {
+                            "id": "FUTURO_DO_PRETERITO",
+                            "name": {
+                                "value": "futuro do pretérito do indicativo",
+                                "synonyms": [
+                                    "futuro do pretérito"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "FUTURO_DO_PRESENTE",
+                            "name": {
+                                "value": "futuro do presente do indicativo",
+                                "synonyms": [
+                                    "futuro do presente",
+                                    "futuro do indicativo"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "PRETERITO_IMPERFEITO",
+                            "name": {
+                                "value": "pretérito imperfeito do indicativo",
+                                "synonyms": [
+                                    "pretérito imperfeito"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "PRETERITO_PERFEITO",
+                            "name": {
+                                "value": "pretérito perfeito do indicativo",
+                                "synonyms": [
+                                    "pretérito perfeito"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "PRESENTE",
+                            "name": {
+                                "value": "presente do indicativo",
+                                "synonyms": [
+                                    "presente"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "VERBO",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "alcançar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "servir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ser"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "agir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "agiotar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "angariar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "anteceder"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "acariciar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "comprar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "adquirir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "somar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dividir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "duvidar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "raspar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "legalizar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "apadrinhar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "candidatar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "jogar"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "ConjugarVerboIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "verbo",
+                            "type": "VERBO",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.344394093406.670251780654"
+                            }
+                        },
+                        {
+                            "name": "tempo",
+                            "type": "TEMPO_VERBAL",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.344394093406.843317596084"
+                            },
+                            "validations": [
+                                {
+                                    "type": "hasEntityResolutionMatch",
+                                    "prompt": "Slot.Validation.344394093406.843317596084.325453034888"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Slot.Validation.344394093406.843317596084.325453034888",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Informe um tempo válido"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.344394093406.670251780654",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Qual verbo você gostaria de conjugar?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Deseja conjugar qual verbo?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Informe o verbo que você deseja conjugar?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Que verbo você quer conjugar?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Qual verbo você quer conjugar?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Vamos conjugar qual verbo?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Qual verbo?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Qual verbo você deseja conjugar?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.344394093406.843317596084",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Informe o tempo?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Em qual tempo você deseja conjugar o verbo {verbo} ?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Vamos conjugar o verbo {verbo} em qual tempo?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Em qual tempo?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Em qual tempo você deseja conjugar?"
+                    }
+                ]
+            }
+        ]
+    }
+}
