@@ -1,1 +1,3 @@
-alcançar 
+alcançar
+chover
+nevar

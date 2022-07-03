@@ -4,9 +4,13 @@ class ConjugacaoUtil {
 
     static montarConjugacao(conjugacoes) {
         conjugacoes.forEach(conjugacao => {
-            var texto = conjugacao.textoFormato.replace('${PESSOA}', conjugacao.pessoa ? conjugacao.pessoa : '');
-            texto = texto.replace('${VERBO}', conjugacao.verbo ? conjugacao.verbo : '');
-            conjugacao.conjugacao = texto.toLowerCase();
+            if(conjugacao.verbo) {
+                var texto = conjugacao.textoFormato.replace('${PESSOA}', conjugacao.pessoa ? conjugacao.pessoa : '');
+                texto = texto.replace('${VERBO}', conjugacao.verbo ? conjugacao.verbo : '');
+                conjugacao.conjugacao = texto.toLowerCase();
+            } else {
+                conjugacao = null; 
+            }
         });
         return conjugacoes;
     }
