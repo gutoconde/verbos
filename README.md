@@ -1,6 +1,6 @@
-#Verbos API
+# Verbos API
 
-##Informações Gerais
+## Informações Gerais
 
 Verbos API é uma biblioteca com serviço de consulta de conjugações de verbo.
 
@@ -15,7 +15,7 @@ De toda forma, como autor do projeto, aceitarei de bomgrado qualquer sugestão o
 gutoconde
 gutoconde@gmail.com
 
-##Serviços da API
+## Serviços da API
 
 Possui 2 serviços principais :
 
@@ -43,7 +43,7 @@ A seguir, a lista de tempos disponíveis :
 - GERUNDIO
 - PARTICIPIO_PASSADO
 
-##Montagem/atualização da base de dados
+## Montagem/atualização da base de dados
 
 Para montar a base de dados devemos executar os scripts sql no banco SQlite verbos/database/verbos.db na ordem abaixo:
 
@@ -56,7 +56,7 @@ Para carregar o banco de dados com os verbos do [Portal da Língua Portuguesa](h
 > npm run load
 ```
 
-#Imagem docker :
+# Imagem docker :
 
 Para executar a imagem Docker do projeto execute o comando a seguir a partir do diretório verbos (raiz do projeto):
 
@@ -64,7 +64,7 @@ Para executar a imagem Docker do projeto execute o comando a seguir a partir do 
 > docker-compose up -d --build
 ```
 
-#Implantação do projeto na AWS
+# Implantação do projeto na AWS
 
 Para implantar o projeto na AWS, antes de executar o comando de deploy, é necessário instalar a ferramenta `serverless` da AWS e setar as seguintes variáveis de ambiente:
 
