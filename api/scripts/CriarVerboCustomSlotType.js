@@ -7,6 +7,12 @@ require('dotenv').config();
 console.log('banco de dados : ' + process.env.VERBOS_DBSOURCE);
 var db = require("../integracao/Database.js");
 
+/**
+ * Arquivo que cria a definição de SlotType VERBO,
+ * usada na skill Alexa. Ele lista os verbos da base de dados
+ * e cria sinônimos no caso de verbos compostos ( a Alexa
+ * nao diferencia verbos com hifen).
+ */
 module.exports.execute = async() => {    
 
         

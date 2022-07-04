@@ -1,3 +1,10 @@
+#Arquivo servless para implantacao do servico
+#lambda na AWS
+#
+#Antes de executar, defina as variaveis de ambiente
+#AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY
+#Execute o comando a partir do diretorio verbos/api:
+#> sls deploy
 service: verbos-api
 
 frameworkVersion: '3'

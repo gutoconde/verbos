@@ -7,6 +7,10 @@ const htmlParser = require('../util/HtmlParser');
 require('dotenv').config();
 var db = require("../integracao/Database.js");
 
+/**
+ * Script de teste. Recupera as conjugacoes de um verbo
+ * e exibe no console.
+ */
 module.exports.execute = async() => {    
 
         var verbo = 'relampejar';

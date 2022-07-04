@@ -8,6 +8,10 @@ require('dotenv').config();
 console.log('banco de dados : ' + process.env.VERBOS_DBSOURCE);
 var db = require("../integracao/Database.js");
 
+/**
+ * Scritp que carrega os verbos na base de dados
+ * SQLite (arquivo /verbos/api/database/verbos.db)
+ */
 module.exports.execute = async() => {    
 
         var index = 0;
