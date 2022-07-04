@@ -8,12 +8,12 @@ Ela utiliza uma base de dados de 14.516 verbos, extraída do site [Portal da Lí
 
 O projeto Verbos API é um projeto pessoal feito sem fins lucrativos, apenas com o intuito de passatempo e de aprendizado. Basicamente, ele foi criado para ser a api de consulta de um Skill da Alexa ("Consulta Verbos").
 
-Como ele foi feito de forma despretenciosa, seu objetivo não é servir de template ou modelo para outros projetos. Mesmo porque não sofreu nenhum tipo de revisão. 
+Como ele foi feito de forma despretensiosa, seu objetivo não é servir de template ou modelo para outros projetos. Mesmo porque não sofreu nenhum tipo de revisão. 
 
 De toda forma, como autor do projeto, aceitarei de bomgrado qualquer sugestão ou melhoria.
 
 gutoconde
-gutoconde@gmail.com
+@github/gutoconde
 
 ## Serviços da API
 
