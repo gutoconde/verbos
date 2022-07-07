@@ -46,8 +46,8 @@ class HtmlParser {
                 for(var i = 0; i < brs.length; i++) {
                     if(brs[i] && brs[i].nodeType === brs[i].TEXT_NODE && brs[i].nodeValue.trim() !== '') {
                         var texto = brs[i].nodeValue.split('/')[0].trim();
-                        texto = texto.replace(/(\r\n|\n|\r|\t|-)/gm, '');
-                        texto = texto && texto.trim() !== '' ? texto : null; 
+                        texto = texto.replace(/(\r\n|\n|\r|\t)/gm, '');
+                        texto = texto && texto.trim() !== '' && texto.trim() !== '-' ? texto : null; 
                         item.verbos.push(texto);
                     }
                 }
@@ -67,8 +67,8 @@ class HtmlParser {
                 for(var i = 0; i < brs.length; i++) {
                     if(brs[i] && brs[i].nodeType === brs[i].TEXT_NODE && brs[i].nodeValue.trim() !== '') {
                         var texto = brs[i].nodeValue.split('/')[0].trim();
-                        texto = texto.replace(/(\r\n|\n|\r|\t|-)/gm, '');
-                        texto = texto && texto.trim() !== '' ? texto : null; 
+                        texto = texto.replace(/(\r\n|\n|\r|\t)/gm, '');
+                        texto = texto && texto.trim() !== '' && texto.trim() !== '-' ? texto : null; 
                         item.verbos.push(texto);
                     }
                 }
@@ -114,8 +114,8 @@ class HtmlParser {
             
             if(tdsInfinitivo.textContent) {
                 var texto = tdsInfinitivo.textContent.split('/')[0].trim();
-                texto = texto.replace(/(\r\n|\n|\r|\t|-)/gm, '');
-                texto = texto && texto.trim() !== '' ? texto : null; 
+                texto = texto.replace(/(\r\n|\n|\r|\t)/gm, '');
+                texto = texto && texto.trim() !== '' && texto.trim() !== '-' ? texto : null; 
                 itemInfinitivo.verbos.push(texto);
             }
             resultadoVerbo.conjugacao.push(itemInfinitivo);
@@ -131,8 +131,8 @@ class HtmlParser {
             for(var i = 0; i < brs.length; i++) {
                 if(brs[i] && brs[i].nodeType === brs[i].TEXT_NODE && brs[i].nodeValue.trim() !== '') {
                     var texto = brs[i].nodeValue.split('/')[0].trim();
-                    texto = texto.replace(/(\r\n|\n|\r|\t|-)/gm, '');
-                    texto = texto && texto.trim() !== '' ? texto : null; 
+                    texto = texto.replace(/(\r\n|\n|\r|\t)/gm, '');
+                    texto = texto && texto.trim() !== '' && texto.trim() !== '-' ? texto : null; 
                     itemInfinitivoPessoal.verbos.push(texto);
                 }
             }
@@ -147,8 +147,8 @@ class HtmlParser {
             brs = tdGerundio.childNodes;
             if(brs[0] && brs[0].nodeType === brs[0].TEXT_NODE && brs[0].nodeValue.trim() !== '') {
                 var texto = brs[0].nodeValue.split('/')[0].trim();
-                texto = texto.replace(/(\r\n|\n|\r|\t|-)/gm, '');
-                texto = texto && texto.trim() !== '' ? texto : null; 
+                texto = texto.replace(/(\r\n|\n|\r|\t)/gm, '');
+                texto = texto && texto.trim() !== '' && texto.trim() !== '-' ? texto : null; 
                 itemGerundio.verbos.push(texto);
             }
             resultadoVerbo.conjugacao.push(itemGerundio);
@@ -164,7 +164,7 @@ class HtmlParser {
             };
             for(var i = 0; i < tdsParticioPassado.length; i++) {
                 if(tdsParticioPassado[i].textContent) {
-                    var v = tdsParticioPassado[i].textContent.replace(/(\r\n|\n|\r|\t|-)/gm, '');
+                    var v = tdsParticioPassado[i].textContent.replace(/(\r\n|\n|\r|\t)/gm, '');
                     var vs = v.split('/');
                     itemParticipioPassado.verbos.push(vs[0].trim());
                     if(vs.length > 1) {
